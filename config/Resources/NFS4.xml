@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<root version="2.0.4.1">
+  <main exe="nfs4.exe" ini="nfs4.ini">
+    <!-- Language -->
+    <property section="NFS4" key="Language" type="choice">
+      <title>
+        <value lang="enu">Language</value>
+        <value lang="rus">Язык</value>
+        <value lang="ukr">Мова</value>
+      </title>
+      <description>
+        <value lang="enu">Language which is officially supported by NFS4 (English/German/French/Spanish/Italian/Swedish). Language files have to be already installed.</value>
+        <value lang="rus">Один из языков, официально поддерживаемых NFS4 (Английский/Немецкий/Французский/Испанский/Итальянский/Шведский). Языковые файлы выбранного языка должны быть установлены, иначе вы получите ошибку.</value>
+        <value lang="ukr">Одна з мов, офіційно підтримуваних NFS4 (Англійська/Німецька/Французька/Іспанська/Італійська/Шведська). Мовні файли вибраної мови повинні бути встановлені, інакше ви отримаєте помилку.</value>
+      </description>
+      <option key="english">
+        <value lang="enu">English</value>
+        <value lang="rus">Английский</value>
+        <value lang="ukr">Англійська</value>
+      </option>
+      <option key="german">
+        <value lang="enu">German</value>
+        <value lang="rus">Немецкий</value>
+        <value lang="ukr">Німецька</value>
+      </option>
+      <option key="french">
+        <value lang="enu">French</value>
+        <value lang="rus">Французский</value>
+        <value lang="ukr">Французька</value>
+      </option>
+      <option key="spanish">
+        <value lang="enu">Spanish</value>
+        <value lang="rus">Испанский</value>
+        <value lang="ukr">Іспанська</value>
+      </option>
+      <option key="italian">
+        <value lang="enu">Italian</value>
+        <value lang="rus">Итальянский</value>
+        <value lang="ukr">Італійська</value>
+      </option>
+      <option key="swedish">
+        <value lang="enu">Swedish</value>
+        <value lang="rus">Шведский</value>
+        <value lang="ukr">Шведська</value>
+      </option>
+    </property>
+    <!-- Thrash Driver -->
+    <property section="NFS4" key="ThrashDriver" type="choice">
+      <title>
+        <value lang="enu">Renderer</value>
+        <value lang="rus">Рендерер</value>
+        <value lang="ukr">Рендерер</value>
+      </title>
+      <description>
+        <value lang="enu">Thrash driver name.</value>
+        <value lang="rus">Имя Thrash-драйвера.</value>
+        <value lang="ukr">Назва Thrash-драйвера.</value>
+      </description>
+      <option key="dgvoodoo">
+        <value>dgVoodoo</value>
+      </option>
+      <option key="dx6">
+        <value>DirectX 6</value>
+      </option>
+      <option key="dx7">
+        <value>DirectX 7</value>
+      </option>
+      <option key="dx8">
+        <value>DirectX 8</value>
+      </option>
+      <option key="glide3x">
+        <value>Glide3x</value>
+      </option>
+      <option key="nglide">
+        <value>nGlide</value>
+      </option>
+      <option key="opengl1">
+        <value>OpenGL 1</value>
+      </option>
+      <option key="opengl3">
+        <value>OpenGL 3</value>
+      </option>
+      <option key="softtri">
+        <value lang="enu">Software</value>
+        <value lang="rus">Программный</value>
+        <value lang="ukr">Програмний</value>
+      </option>
+    </property>
+    <group>
+      <title>
+        <value lang="enu">System</value>
+        <value lang="rus">Система</value>
+        <value lang="ukr">Система</value>
+      </title>
+      <!-- OwnHeapLimitMb -->
+      <property section="NFS4" key="OwnHeapLimitMb" type="integer" min="32" max="512">
+        <title>
+          <value lang="enu">Own heap limit (Mb)</value>
+          <value lang="rus">Размер кучи (Мб)</value>
+          <value lang="ukr">Розмір кучі (Мб)</value>
+        </title>
+        <description>
+          <value lang="enu">Heap size limit in megabytes. Might be from 32 to 512, 64 by default by default, in the original version it was 26. Helps to get rid of "Out Of Memory" error.</value>
+          <value lang="rus">Размер внутренней кучи в мегабайтах. Может быть от 32 до 512, по умолчанию 64, в оригинальной игре было 26. Позволяет избавиться от ошибки "Out Of Memory".</value>
+          <value lang="ukr">Розмір внутрішньої кучі в мегабайтах. Може бути від 32 до 512, за замовчуванням 64, в оригінальній грі було 26. Дозволяє позбутися помилки "Out Of Memory".</value>
+        </description>
+      </property>
+      <!-- SingleProcAffinity -->
+      <property section="NFS4" key="SingleProcAffinity" type="check">
+        <title>
+          <value lang="enu">Single proc affinity</value>
+          <value lang="rus">Использовать одно ядро</value>
+          <value lang="ukr">Використовувати одне ядро</value>
+        </title>
+        <description>
+          <value lang="enu">Bind game's process to one core, disabled by default, not recommended.</value>
+          <value lang="rus">Включение привязки процесса игры к одному ядру, по умолчанию выключено, не рекомендуется.</value>
+          <value lang="ukr">Задіяти прив'язку процеса гри до одного ядра, за замовчуванням вимкнено, не рекомендується.</value>
+        </description>
+      </property>
+      <!-- NoErrorReporting -->
+      <property section="NFS4" key="NoErrorReporting" type="check">
+        <title>
+          <value lang="enu">No error reporting</value>
+          <value lang="rus">Откл. cообщения о ошибках</value>
+          <value lang="ukr">Вимк. повідомлення помилок</value>
+        </title>
+        <description>
+          <value lang="enu">Enables suppressing of Windows Error Reporting dialog on fatal errors. Isn't recommended.</value>
+          <value lang="rus">Включает встроенный в оригинальную игру механизм подавления появления диалога Windows Error Reporting при критических ошибках. По умолчанию выключено. Не рекомендуется включать.</value>
+          <value lang="ukr">Задіяти вбудований в оригінальну гру механізм придушення появи діалогу Windows Error Reporting при критичних помилках. За замовчуванням вимкнено. Не рекомендується включати.</value>
+        </description>
+      </property>
+    </group>
+    <group>
+      <title>
+        <value lang="enu">Run</value>
+        <value lang="rus">Запуск</value>
+        <value lang="ukr">Запуск</value>
+      </title>
+      <!-- NoMovies -->
+      <property section="NFS4" key="NoMovies" type="check">
+        <title>
+          <value lang="enu">No movies</value>
+          <value lang="rus">Выкл. видеоролики</value>
+          <value lang="ukr">Вимк. відеоролики</value>
+        </title>
+        <description>
+          <value lang="enu">Don't display opening movie and demo movies when idle in the menu.</value>
+          <value lang="rus">Отключает стартовое видео и демо-ролики при бездействии.</value>
+          <value lang="ukr">Відключає стартове відео и демо-ролики під час бездіяльності.</value>
+        </description>
+      </property>
+    </group>
+    <group>
+      <title>
+        <value lang="enu">Unknown</value>
+        <value lang="rus">Неизвестное</value>
+        <value lang="ukr">Невідоме</value>
+      </title>
+      <!-- Variant -->
+      <property section="NFS4" key="Variant" type="integer" min="0">
+        <title>
+          <value lang="enu">Variant</value>
+          <value lang="rus">Вариант</value>
+          <value lang="ukr">Варіант</value>
+        </title>
+        <description>
+          <value lang="enu">Unknown effect.</value>
+          <value lang="rus">Неизвестный эффект.</value>
+          <value lang="ukr">Невідомий ефект.</value>
+        </description>
+      </property>
+    </group>
+  </main>
+  <thrash dir="drivers">
+    <driver key="dgvoodoo" ini="thrash.ini">
+      <title>
+        <value>dgVoodoo</value>
+      </title>
+      <group>
+        <property inherit="file" />
+        <property inherit="type" />
+        <property inherit="fog" />
+      </group>
+    </driver>
+    <driver key="dx6" ini="thrash.ini">
+      <title>
+        <value>DirectX 6</value>
+      </title>
+      <group>
+        <property inherit="file" />
+        <property inherit="type" />
+        <property inherit="fog" />
+      </group>
+      <group>
+        <property inherit="lagfix" />
+      </group>
+    </driver>
+    <driver key="dx7" ini="thrash.ini" multi="1">
+      <title>
+        <value>DirectX 7</value>
+      </title>
+      <group>
+        <property inherit="file" />
+        <property inherit="type" />
+        <property inherit="fog" />
+      </group>
+      <group>
+        <property inherit="lagfix" />
+      </group>
+    </driver>
+    <driver key="dx8" ini="thrash.ini" multi="1">
+      <title>
+        <value>DirectX 8</value>
+      </title>
+      <group>
+        <property inherit="file" />
+        <property inherit="type" />
+        <property inherit="fog" />
+      </group>
+    </driver>
+    <driver key="glide3x" ini="thrash.ini">
+      <title>
+        <value>Glide3x</value>
+      </title>
+      <group>
+        <property inherit="file" />
+        <property inherit="type" />
+        <property inherit="fog" />
+      </group>
+      <group>
+        <property section="ENV" key="FX_GLIDE_NO_SPLASH" type="radio">
+          <title>
+            <value lang="enu">3Dfx logo splash screen</value>
+            <value lang="rus">Экран логотипа 3Dfx</value>
+            <value lang="ukr">Екран логотипу 3Dfx</value>
+          </title>
+          <option key="0">
+            <value lang="enu">On</value>
+            <value lang="rus">Вкл.</value>
+            <value lang="ukr">Так</value>
+          </option>
+          <option key="1">
+            <value lang="enu">Off</value>
+            <value lang="rus">Выкл.</value>
+            <value lang="ukr">Ні</value>
+          </option>
+        </property>
+      </group>
+    </driver>
+    <driver key="nglide" ini="thrash.ini">
+      <title>
+        <value>nGlide</value>
+      </title>
+      <group>
+        <property inherit="file" />
+        <property inherit="type" />
+        <property inherit="fog" />
+      </group>
+      <group>
+        <property inherit="resolution" />
+        <property inherit="aspect" />
+        <property inherit="refresh" />
+        <property inherit="vsync" />
+        <property inherit="gamma" />
+        <property section="ENV" key="NGLIDE_SPLASH" type="radio">
+          <title>
+            <value lang="enu">3Dfx logo splash screen</value>
+            <value lang="rus">Экран логотипа 3Dfx</value>
+            <value lang="ukr">Екран логотипу 3Dfx</value>
+          </title>
+          <option key="1">
+            <value lang="enu">On</value>
+            <value lang="rus">Вкл.</value>
+            <value lang="ukr">Так</value>
+          </option>
+          <option key="0">
+            <value lang="enu">Off</value>
+            <value lang="rus">Выкл.</value>
+            <value lang="ukr">Ні</value>
+          </option>
+        </property>
+      </group>
+    </driver>
+    <driver key="opengl1" ini="thrash.ini" multi="1">
+      <title>
+        <value>OpenGL 1</value>
+      </title>
+      <group>
+        <property inherit="file" />
+        <property inherit="type" />
+        <property inherit="fog" />
+      </group>
+      <group>
+        <property inherit="windowed" />
+        <property inherit="exclusive" />
+        <property inherit="resolution" key="OGL_RESOLUTION" />
+        <property inherit="aspect" key="OGL_ASPECT" />
+        <property inherit="refresh" key="OGL_REFRESH" />
+        <property inherit="vsync" key="OGL_VSYNC" />
+        <property inherit="gamma" key="OGL_GAMMA" />
+      </group>
+    </driver>
+    <driver key="opengl3" ini="thrash.ini" multi="1">
+      <title>
+        <value>OpenGL 3</value>
+      </title>
+      <group>
+        <property inherit="file" />
+        <property inherit="type" />
+        <property inherit="fog" />
+        <property section="ENV" key="OGL_INDEXED_VBO" type="check">
+          <title>
+            <value lang="enu">Indexed VBO</value>
+            <value lang="rus">Индексированый VBO</value>
+            <value lang="ukr">Індексований VBO</value>
+          </title>
+        </property>
+      </group>
+      <group>
+        <property inherit="windowed" />
+        <property inherit="exclusive" />
+        <property inherit="resolution" key="OGL_RESOLUTION" />
+        <property inherit="aspect" key="OGL_ASPECT" />
+        <property inherit="refresh" key="OGL_REFRESH" />
+        <property inherit="vsync" key="OGL_VSYNC" />
+        <property inherit="gamma" key="OGL_GAMMA" />
+      </group>
+    </driver>
+    <driver key="softtri" ini="thrash.ini">
+      <title>
+        <value lang="enu">Software</value>
+        <value lang="rus">Программный</value>
+        <value lang="ukr">Програмний</value>
+      </title>
+      <group>
+        <property inherit="file" />
+        <property inherit="type" />
+      </group>
+      <group>
+        <property inherit="lagfix" />
+      </group>
+    </driver>
+  </thrash>
+  <base>
+    <property name="file" section="THRASH" key="File" type="choice">
+      <title>
+        <value lang="enu">File</value>
+        <value lang="rus">Файл</value>
+        <value lang="ukr">Файл</value>
+      </title>
+      <description>
+        <value lang="enu">Driver DLL filename.</value>
+        <value lang="rus">Имя dll-файла драйвера.</value>
+        <value lang="ukr">Ім'я dll-файлу драйвера.</value>
+      </description>
+    </property>
+    <property name="type" section="THRASH" key="Type" type="choice">
+      <title>
+        <value lang="enu">Type</value>
+        <value lang="rus">Тип</value>
+        <value lang="ukr">Тип</value>
+      </title>
+      <description>
+        <value lang="enu">Driver type (d3d/voodoo/software/none).</value>
+        <value lang="rus">Тип драйвера (d3d/voodoo/software/none).</value>
+        <value lang="ukr">Тип драйвера (d3d/voodoo/software/none).</value>
+      </description>
+      <option key="d3d">
+        <value>d3d</value>
+      </option>
+      <option key="voodoo">
+        <value>voodoo</value>
+      </option>
+      <option key="software">
+        <value>software</value>
+      </option>
+      <option key="none">
+        <value>none</value>
+      </option>
+    </property>
+    <property name="fog" section="THRASH" key="FogSupport" type="check">
+      <title>
+        <value lang="enu">Fog support</value>
+        <value lang="rus">Поддержка тумана</value>
+        <value lang="ukr">Підтримка туману</value>
+      </title>
+      <description>
+        <value lang="enu">Have to be checked if the renderer supports the fog effect.</value>
+        <value lang="rus">Должно быть включено, если рендерер поддерживает эффект тумана.</value>
+        <value lang="ukr">Повинно бути увімкнено, якщо рендерер підтримує ефект туману.</value>
+      </description>
+    </property>
+    <property name="lagfix" section="THRASH" key="DirectDrawLagFix" type="check">
+      <title>
+        <value>DirectDraw lag fix</value>
+      </title>
+    </property>
+    <property name="windowed" section="ENV" key="OGL_WINDOWED" type="check">
+      <title>
+        <value lang="enu">Windowed mode</value>
+        <value lang="rus">Оконный режим</value>
+        <value lang="ukr">Віконний режим</value>
+      </title>
+      <description>
+        <value lang="enu">Allows to run the game in windowed mode</value>
+        <value lang="rus">Позволяет запускать игру в оконном режиме</value>
+        <value lang="ukr">Дозволяє запускати гру у віконному режимі</value>
+      </description>
+    </property>
+    <property name="exclusive" section="ENV" key="OGL_EXCLUSIVE" type="check">
+      <title>
+        <value lang="enu">Exclusive mode</value>
+        <value lang="rus">Эксклюзивный режим</value>
+        <value lang="ukr">Ексклюзивний режим</value>
+      </title>
+    </property>
+    <property name="resolution" section="ENV" key="NGLIDE_RESOLUTION" type="choice">
+      <title>
+        <value lang="enu">Screen resolution</value>
+        <value lang="rus">Разрешение экрана</value>
+        <value lang="ukr">Розширення екрану</value>
+      </title>
+      <option key="0">
+        <value lang="enu">By game (Default)</value>
+        <value lang="rus">Управляется игрой (По умолчанию)</value>
+        <value lang="ukr">Керується грою (За замовчуванням)</value>
+      </option>
+      <option key="1">
+        <value lang="enu">By desktop</value>
+        <value lang="rus">Как у рабочего стола</value>
+        <value lang="ukr">Як у робочого столу</value>
+      </option>
+      <option key="2">
+        <value>640 x 480</value>
+      </option>
+      <option key="3">
+        <value>800 x 600</value>
+      </option>
+      <option key="4">
+        <value>1024 x 600</value>
+      </option>
+      <option key="5">
+        <value>1024 x 768</value>
+      </option>
+      <option key="6">
+        <value>1152 x 864</value>
+      </option>
+      <option key="7">
+        <value>1280 x 720</value>
+      </option>
+      <option key="8">
+        <value>1280 x 768</value>
+      </option>
+      <option key="9">
+        <value>1280 x 800</value>
+      </option>
+      <option key="10">
+        <value>1280 x 960</value>
+      </option>
+      <option key="11">
+        <value>1280 x 1024</value>
+      </option>
+      <option key="12">
+        <value>1360 x 768</value>
+      </option>
+      <option key="13">
+        <value>1366 x 768</value>
+      </option>
+      <option key="14">
+        <value>1400 x 1050</value>
+      </option>
+      <option key="15">
+        <value>1440 x 900</value>
+      </option>
+      <option key="16">
+        <value>1440 x 1080</value>
+      </option>
+      <option key="17">
+        <value>1536 x 864</value>
+      </option>
+      <option key="18">
+        <value>1600 x 900</value>
+      </option>
+      <option key="19">
+        <value>1600 x 1200</value>
+      </option>
+      <option key="20">
+        <value>1680 x 1050</value>
+      </option>
+      <option key="21">
+        <value>1920 x 1080</value>
+      </option>
+      <option key="22">
+        <value>1920 x 1200</value>
+      </option>
+      <option key="23">
+        <value>1920 x 1440</value>
+      </option>
+      <option key="24">
+        <value>2048 x 1536</value>
+      </option>
+      <option key="25">
+        <value>2560 x 1440</value>
+      </option>
+      <option key="26">
+        <value>2560 x 1600</value>
+      </option>
+      <option key="27">
+        <value>3840 x 2160</value>
+      </option>
+      <option key="28">
+        <value>7680 x 4320</value>
+      </option>
+    </property>
+    <property name="aspect" section="ENV" key="NGLIDE_ASPECT" type="radio">
+      <title>
+        <value lang="enu">Aspect ratio</value>
+        <value lang="rus">Соотношение сторон</value>
+        <value lang="ukr">Співвідношення сторін</value>
+      </title>
+      <option key="1">
+        <value lang="enu">Preserve original</value>
+        <value lang="rus">Оригинал</value>
+        <value lang="ukr">Оригінал</value>
+      </option>
+      <option key="0">
+        <value lang="enu">Fit to screen (Default)</value>
+        <value lang="rus">Растянуть (По умолчанию)</value>
+        <value lang="ukr">Розтягнути (За замовчуванням)</value>
+      </option>
+    </property>
+    <property name="refresh" section="ENV" key="NGLIDE_REFRESH" type="choice">
+      <title>
+        <value lang="enu">Refresh rate</value>
+        <value lang="rus">Частота обновления</value>
+        <value lang="ukr">Частота оновлення</value>
+      </title>
+      <option key="0">
+        <value lang="enu">By application (Default)</value>
+        <value lang="rus">Управляется игрой (По умолчанию)</value>
+        <value lang="ukr">Керується грою (За замовчуванням)</value>
+      </option>
+      <option key="1">
+        <value lang="enu">60 Hz</value>
+        <value lang="rus">60 Гц</value>
+        <value lang="ukr">60 Гц</value>
+      </option>
+      <option key="2">
+        <value lang="enu">70 Hz</value>
+        <value lang="rus">70 Гц</value>
+        <value lang="ukr">70 Гц</value>
+      </option>
+      <option key="3">
+        <value lang="enu">72 Hz</value>
+        <value lang="rus">72 Гц</value>
+        <value lang="ukr">72 Гц</value>
+      </option>
+      <option key="4">
+        <value lang="enu">75 Hz</value>
+        <value lang="rus">75 Гц</value>
+        <value lang="ukr">75 Гц</value>
+      </option>
+      <option key="5">
+        <value lang="enu">85 Hz</value>
+        <value lang="rus">85 Гц</value>
+        <value lang="ukr">85 Гц</value>
+      </option>
+      <option key="6">
+        <value lang="enu">90 Hz</value>
+        <value lang="rus">90 Гц</value>
+        <value lang="ukr">90 Гц</value>
+      </option>
+      <option key="7">
+        <value lang="enu">100 Hz</value>
+        <value lang="rus">100 Гц</value>
+        <value lang="ukr">100 Гц</value>
+      </option>
+      <option key="8">
+        <value lang="enu">120 Hz</value>
+        <value lang="rus">120 Гц</value>
+        <value lang="ukr">120 Гц</value>
+      </option>
+      <option key="9">
+        <value lang="enu">144 Hz</value>
+        <value lang="rus">144 Гц</value>
+        <value lang="ukr">144 Гц</value>
+      </option>
+    </property>
+    <property name="vsync" section="ENV" key="NGLIDE_VSYNC" type="radio">
+      <title>
+        <value lang="enu">Vert. synchronization</value>
+        <value lang="rus">Верт. синхронизация</value>
+        <value lang="ukr">Верт. синхронізація</value>
+      </title>
+      <option key="1">
+        <value lang="enu">On</value>
+        <value lang="rus">Вкл.</value>
+        <value lang="ukr">Так</value>
+      </option>
+      <option key="0">
+        <value lang="enu">Off</value>
+        <value lang="rus">Выкл.</value>
+        <value lang="ukr">Ні</value>
+      </option>
+    </property>
+    <property name="gamma" section="ENV" key="NGLIDE_GAMMA" type="choice">
+      <title>
+        <value lang="enu">Gamma correction</value>
+        <value lang="rus">Коррекция гаммы</value>
+        <value lang="ukr">Корекція гами</value>
+      </title>
+      <option key="0">
+        <value>0.5</value>
+      </option>
+      <option key="1">
+        <value>0.6</value>
+      </option>
+      <option key="2">
+        <value>0.7</value>
+      </option>
+      <option key="3">
+        <value>0.8</value>
+      </option>
+      <option key="4">
+        <value>0.9</value>
+      </option>
+      <option key="5">
+        <value lang="enu">1.0 (Default)</value>
+        <value lang="rus">1.0 (По умолчанию)</value>
+        <value lang="ukr">1.0 (За замовчуванням)</value>
+      </option>
+      <option key="6">
+        <value>1.1</value>
+      </option>
+      <option key="7">
+        <value>1.2</value>
+      </option>
+      <option key="8">
+        <value>1.3</value>
+      </option>
+      <option key="9">
+        <value>1.4</value>
+      </option>
+      <option key="10">
+        <value>1.5</value>
+      </option>
+    </property>
+  </base>
+  <messages>
+    <item key="BUTTON_OK">
+      <value>OK</value>
+    </item>
+    <item key="BUTTON_CANCEL">
+      <value lang="enu">Cancel</value>
+      <value lang="rus">Отмена</value>
+      <value lang="ukr">Відміна</value>
+    </item>
+    <item key="BUTTON_CLOSE">
+      <value lang="enu">Close</value>
+      <value lang="rus">Закрыть</value>
+      <value lang="ukr">Закрити</value>
+    </item>
+    <item key="BUTTON_MORE_OPTIONS">
+      <value lang="enu">More options</value>
+      <value lang="rus">Больше</value>
+      <value lang="ukr">Більше</value>
+    </item>
+    <item key="BUTTON_LESS_OPTIONS">
+      <value lang="enu">Less options</value>
+      <value lang="rus">Меньше</value>
+      <value lang="ukr">Менше</value>
+    </item>
+    <item key="BUTTON_LAUNCH">
+      <value lang="enu">Save and launch</value>
+      <value lang="rus">Сохр. и запустить</value>
+      <value lang="ukr">Збер. і запустити</value>
+    </item>
+    <item key="BUTTON_SAVE">
+      <value lang="enu">Save</value>
+      <value lang="rus">Сохранить</value>
+      <value lang="ukr">Зберегти</value>
+    </item>
+    <!--<item key="BUTTON_COMPATIBILITY">
+			<value lang="enu">Compability</value>
+			<value lang="rus">Совместимость</value>
+			<value lang="ukr">Сумісність</value>
+		</item>-->
+    <item key="BUTTON_README">
+      <value lang="enu">View readme</value>
+      <value lang="rus">Просмотреть Readme</value>
+      <value lang="ukr">Переглянути Readme</value>
+    </item>
+    <item key="BUTTON_CONFIG">
+      <value lang="enu">Configure</value>
+      <value lang="rus">Настроить</value>
+      <value lang="ukr">Налаштувати</value>
+    </item>
+    <!--<item key="LABEL_EMPTY">
+      <value lang="enu">EMPTY</value>
+      <value lang="rus">ПУСТО</value>
+      <value lang="ukr">ПУСТО</value>
+    </item>-->
+    <item key="LABEL_NAME">
+      <value lang="enu">Name</value>
+      <value lang="rus">Название</value>
+      <value lang="ukr">Назва</value>
+    </item>
+    <item key="LABEL_COPYRIGHT">
+      <value lang="enu">Author</value>
+      <value lang="rus">Автор</value>
+      <value lang="ukr">Автор</value>
+    </item>
+    <item key="LABEL_VERSION">
+      <value lang="enu">Version</value>
+      <value lang="rus">Версия</value>
+      <value lang="ukr">Версія</value>
+    </item>
+    <!--<item key="LABEL_COMP_FIXES">
+			<value lang="enu">Compatibility Fixes</value>
+			<value lang="rus">Исправления совместимости</value>
+			<value lang="ukr">Виправлення сумісності</value>
+		</item>
+		<item key="LABEL_COMP_MODES">
+			<value lang="enu">Compatibility modes</value>
+			<value lang="rus">Режимы совместимости</value>
+			<value lang="ukr">Режими сумісності</value>
+		</item>
+		<item key="LABEL_COMP_DATABASES">
+			<value lang="enu">Installed databases</value>
+			<value lang="rus">Установленные базы данных</value>
+			<value lang="ukr">Встановлені бази даних</value>
+		</item>
+		<item key="LABEL_COMP_APPLICATIONS">
+			<value lang="enu">Applications</value>
+			<value lang="rus">Приложения</value>
+			<value lang="ukr">Застосунки</value>
+		</item>
+		<item key="LABEL_COMP_FILES">
+			<value lang="enu">Matched files</value>
+			<value lang="rus">Задействованные файлы</value>
+			<value lang="ukr">Задіяні файли</value>
+		</item>
+		<item key="MENU_DELETE">
+			<value lang="enu">Delete</value>
+			<value lang="rus">Удалить</value>
+			<value lang="ukr">Видалити</value>
+		</item>
+		<item key="MENU_DELETE_ALL">
+			<value lang="enu">Delete all</value>
+			<value lang="rus">Удалить все</value>
+			<value lang="ukr">Видалити всі</value>
+		</item>
+		<item key="MENU_UNINSTALL">
+			<value lang="enu">Uninstall</value>
+			<value lang="rus">Удалить</value>
+			<value lang="ukr">Видалити</value>
+		</item>
+		<item key="MENU_UNINSTALL_ALL">
+			<value lang="enu">Uninstall all</value>
+			<value lang="rus">Удалить все</value>
+			<value lang="ukr">Видалити всі</value>
+		</item>-->
+    <item key="INFO_TITLE">
+      <value lang="enu">Info</value>
+      <value lang="rus">Инфо</value>
+      <value lang="ukr">Інфо</value>
+    </item>
+    <item key="WARN_TITLE">
+      <value lang="enu">Warning</value>
+      <value lang="rus">Предупреждение</value>
+      <value lang="ukr">Увага</value>
+    </item>
+    <item key="ERROR_TITLE">
+      <value lang="enu">Error</value>
+      <value lang="rus">Ошибка</value>
+      <value lang="ukr">Помилка</value>
+    </item>
+    <item key="INFO_SAVED">
+      <value lang="enu">Configuration has been saved successfully</value>
+      <value lang="rus">Конфигурация успешно сохранена</value>
+      <value lang="ukr">Конфігурація успішно збережена</value>
+    </item>
+    <!--<item key="INFO_DELETE">
+			<value lang="enu">Compatibility fixes have been deleted successfully</value>
+			<value lang="rus">Исправления совместимости успешно удалены</value>
+			<value lang="ukr">Виправлення сумісності успішно видалені</value>
+		</item>
+		<item key="ERROR_ACCESS_DENIED">
+			<value lang="enu">Access denied</value>
+			<value lang="rus">Доступ закрыт</value>
+			<value lang="ukr">Доступ заборонено</value>
+		</item>-->
+    <item key="ERROR_NOT_SAVED">
+      <value lang="enu">Configuration has not been saved</value>
+      <value lang="rus">Конфигурацию не сохранено</value>
+      <value lang="ukr">Конфігурацію не збережено</value>
+    </item>
+    <item key="ERROR_FILE_NOT_FOUND">
+      <value lang="enu">Can't find file specified %s</value>
+      <value lang="rus">Не удается найти файл %s</value>
+      <value lang="ukr">Неможливо знайти файл %s</value>
+    </item>
+    <item key="ERROR_DRIVER_NOT_FOUND">
+      <value lang="enu">Can't find configuration for thrash driver %s</value>
+      <value lang="rus">Не удается найти конфигурацию для thrash-драйвера %s</value>
+      <value lang="ukr">Неможливо знайти конфігурацію для thrash-драйвера %s</value>
+    </item>
+    <item key="ERROR_STILL_RUNNING">
+      <value lang="enu">The game is still running. Do you want to terminate it?</value>
+      <value lang="rus">Игра еще работает. Хотите прервать ее?</value>
+      <value lang="ukr">Гра досі працює. Хочете перервати її?</value>
+    </item>
+    <item key="MP_DATE_PATTERN">
+      <value lang="enu">MMMM d, yyyy</value>
+      <value lang="rus">d MMMM yyyy</value>
+      <value lang="ukr">d MMMM yyyy</value>
+    </item>
+    <item key="EA_DATE_PATTERN">
+      <value lang="enu">MMMM d, yyyy H:mm</value>
+      <value lang="rus">d MMMM yyyy H:mm</value>
+      <value lang="ukr">d MMMM yyyy H:mm</value>
+    </item>
+    <item key="MP_VERSION_PATTERN">
+      <!-- Possible formats for date see: http://www.cplusplus.com/reference/cstdio/sprintf/ -->
+      <value lang="enu">%s r%d - %s</value>
+      <value lang="rus">%s r%d - %s</value>
+      <value lang="ukr">%s r%d - %s</value>
+    </item>
+    <item key="EA_VERSION_PATTERN">
+      <!-- Possible formats for date see: http://www.cplusplus.com/reference/cstdio/printf/ -->
+      <value lang="enu">%s</value>
+      <value lang="rus">%s</value>
+      <value lang="ukr">%s</value>
+    </item>
+  </messages>
+  <readme>
+    <value>readme_en.txt</value>
+    <value lang="rus">readme_ru.txt</value>
+  </readme>
+</root>

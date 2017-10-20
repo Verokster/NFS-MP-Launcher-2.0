@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="NFS3|Win32">
+      <Configuration>NFS3</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="NFS4|Win32">
+      <Configuration>NFS4</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+    <ProjectGuid>{F15821A5-516F-4A2E-9E45-647F6E8ADCD3}</ProjectGuid>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>config</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v100</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v60</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NFS4|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v60</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NFS3|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v60</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='NFS4|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='NFS3|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <IncludePath>D:\Work\WinApiApp\tinyxml;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NFS4|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <IncludePath>D:\Work\WinApiApp\tinyxml;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NFS3|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <IncludePath>D:\Work\WinApiApp\tinyxml;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Work\WinApiApp\tinyxml;$(IncludePath)</IncludePath>
+    <EmbedManifest>false</EmbedManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <StringPooling>true</StringPooling>
+      <Optimization>MinSpace</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <ExceptionHandling>false</ExceptionHandling>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>_CONFIG_NAME="$(ConfigurationName)";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <CallingConvention>FastCall</CallingConvention>
+      <OmitFramePointers>true</OmitFramePointers>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Release\config.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile />
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\config.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <MergeSections>.rdata=.text</MergeSections>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;comctl32.lib;shell32.lib;oldnames.lib;version.lib;msvcrt.lib</AdditionalDependencies>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <MapExports>false</MapExports>
+      <FixedBaseAddress>true</FixedBaseAddress>
+      <OptimizeWin98>false</OptimizeWin98>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <SectionAlignment>4096</SectionAlignment>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>CALL "$(SolutionDir)\Tools\XmlMinify.exe" "$(ProjectDir)\Resources\NFS3.xml" "$(TargetDir)\config.xml"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NFS4|Win32'">
+    <ClCompile>
+      <StringPooling>true</StringPooling>
+      <Optimization>MinSpace</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <ExceptionHandling>false</ExceptionHandling>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>_CONFIG_NFS4;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <CallingConvention>FastCall</CallingConvention>
+      <OmitFramePointers>true</OmitFramePointers>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Release\config.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile />
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\config.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <MergeSections>.rdata=.text</MergeSections>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;comctl32.lib;shell32.lib;oldnames.lib;version.lib;msvcrt.lib</AdditionalDependencies>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <MapExports>false</MapExports>
+      <FixedBaseAddress>true</FixedBaseAddress>
+      <OptimizeWin98>false</OptimizeWin98>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <SectionAlignment>4096</SectionAlignment>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_CONFIG_NFS4;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>CALL "$(SolutionDir)\Tools\XmlMinify.exe" "$(ProjectDir)\Resources\NFS4.xml" "$(ProjectDir)\Resources\NFS4.min.xml"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>for /F "tokens=4" %%F in ('$(SolutionDir)tools\filever.exe /B /A /D $(TargetPath)') do (
+    set VERSION=%%F
+)
+set VERSION=%VERSION:~0,-2%
+
+CALL "$(SolutionDir)tools\ProjectBuildBackup.bat" "$(SolutionDir)" "$(TargetDir)" "NFS4_MP_configurator_"%VERSION%""</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NFS3|Win32'">
+    <ClCompile>
+      <StringPooling>true</StringPooling>
+      <Optimization>MinSpace</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <ExceptionHandling>false</ExceptionHandling>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>_CONFIG_NFS3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <CallingConvention>FastCall</CallingConvention>
+      <OmitFramePointers>true</OmitFramePointers>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Release\config.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile />
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\config.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <MergeSections>.rdata=.text</MergeSections>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;comctl32.lib;shell32.lib;oldnames.lib;version.lib;msvcrt.lib</AdditionalDependencies>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <MapExports>false</MapExports>
+      <FixedBaseAddress>true</FixedBaseAddress>
+      <OptimizeWin98>false</OptimizeWin98>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <SectionAlignment>4096</SectionAlignment>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_CONFIG_NFS3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>CALL "$(SolutionDir)\Tools\XmlMinify.exe" "$(ProjectDir)\Resources\NFS3.xml" "$(ProjectDir)\Resources\NFS3.min.xml"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>for /F "tokens=4" %%F in ('$(SolutionDir)tools\filever.exe /B /A /D $(TargetPath)') do (
+    set VERSION=%%F
+)
+set VERSION=%VERSION:~0,-2%
+
+CALL "$(SolutionDir)tools\ProjectBuildBackup.bat" "$(SolutionDir)" "$(TargetDir)" "NFS3_MP_configurator_"%VERSION%""</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PreprocessorDefinitions>_CONFIG_NAME="$(ConfigurationName)";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Debug\config.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0422</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\config.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;comctl32.lib;shell32.lib;Ws2_32.lib;oldnames.lib;version.lib;msvcrt.lib</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <MapExports>true</MapExports>
+    </Link>
+    <Manifest>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Manifest>
+    <PreBuildEvent>
+      <Command>CALL "$(SolutionDir)\Tools\XmlMinify.exe" "$(ProjectDir)\Resources\NFS3.xml" "$(ProjectDir)\Resources\NFS3.min.xml"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="base64.h" />
+    <ClInclude Include="CheckProperty.h" />
+    <ClInclude Include="ChoiceProperty.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="Driver.h" />
+    <ClInclude Include="FileInfo.h" />
+    <ClInclude Include="FloatProperty.h" />
+    <ClInclude Include="Group.h" />
+    <ClInclude Include="IntegerProperty.h" />
+    <ClInclude Include="LabelProperty.h" />
+    <ClInclude Include="List.h" />
+    <ClInclude Include="Property.h" />
+    <ClInclude Include="RadioProperty.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Screen.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="TextProperty.h" />
+    <ClInclude Include="WinMain.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="base64.cpp" />
+    <ClCompile Include="CheckProperty.cpp" />
+    <ClCompile Include="ChoiceProperty.cpp" />
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="Driver.cpp" />
+    <ClCompile Include="FileInfo.cpp" />
+    <ClCompile Include="FloatProperty.cpp" />
+    <ClCompile Include="Group.cpp" />
+    <ClCompile Include="IntegerProperty.cpp" />
+    <ClCompile Include="LabelProperty.cpp" />
+    <ClCompile Include="Property.cpp" />
+    <ClCompile Include="RadioProperty.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+    <ClCompile Include="TextProperty.cpp" />
+    <ClCompile Include="WinMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3dfx.bmp" />
+    <None Include="Resources\cpu.bmp" />
+    <None Include="Resources\directx.bmp" />
+    <None Include="Resources\empty.bmp" />
+    <None Include="Resources\icon.ico" />
+    <None Include="Resources\config.manifest" />
+    <None Include="Resources\NFS3.bmp" />
+    <None Include="Resources\NFS3.xml" />
+    <None Include="Resources\NFS4.bmp" />
+    <None Include="Resources\NFS4.xml" />
+    <None Include="Resources\opengl.bmp" />
+    <None Include="Resources\question.ico" />
+    <None Include="Resources\settings.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="config.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\tinyxml\tinyxml_lib.vcxproj">
+      <Project>{c406daec-0886-4771-8dea-9d7329b46cc1}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

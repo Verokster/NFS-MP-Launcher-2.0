@@ -1,0 +1,226 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian (Russia) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_FILE_NOT_FOUND      "Не удается найти файл ""%s"""
+    IDS_CONFIG_CORRUPTED    "Файл конфігурации ""%s"" неверный"
+	IDS_CONFIG_VERSION		"Неверная версия файла конфигурации"
+END
+
+#endif    // Russian (Russia) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Ukrainian (Ukraine) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_UKR)
+LANGUAGE LANG_UKRAINIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_FILE_NOT_FOUND      "Неможливо знайти файл ""%s"""
+    IDS_CONFIG_CORRUPTED    "Файл конфігурації ""%s"" невірний"
+	IDS_CONFIG_VERSION		"Невірна версія файла конфігурації"
+END
+
+#endif    // Ukrainian (Ukraine) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+2 TEXTINCLUDE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""resource.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,0,4,1
+ PRODUCTVERSION 2,0,4,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004b0"
+        BEGIN
+            VALUE "FileDescription", "NFS Modern Patch Configurator"
+            VALUE "FileVersion", "2.0.4.1"
+            VALUE "InternalName", "config.exe"
+            VALUE "LegalCopyright", "2017 Verok"
+            VALUE "OriginalFilename", "config.exe"
+            VALUE "ProductName", "NFS Modern Patch Configurator"
+            VALUE "ProductVersion", "2.0.4"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "Resources\\config.manifest"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RCDATA
+//
+
+#ifdef _CONFIG_NFS3
+IDR_CONFIG              RCDATA                  "Resources\\NFS3.min.xml"
+#elif _CONFIG_NFS4
+IDR_CONFIG              RCDATA                  "Resources\\NFS4.min.xml"
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON                ICON                    "Resources\\icon.ico"
+
+IDI_SETTINGS            ICON                    "Resources\\settings.ico"
+
+IDI_HELP                ICON                    "Resources\\question.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+#ifdef _CONFIG_NFS3
+IDB_CONFIG              BITMAP                  "Resources\\NFS3.bmp"
+#elif _CONFIG_NFS4
+IDB_CONFIG              BITMAP                  "Resources\\NFS4.bmp"
+#endif
+
+IDB_3DFX                BITMAP                  "Resources\\3dfx.bmp"
+
+IDB_DIRECTX             BITMAP                  "Resources\\directx.bmp"
+
+IDB_CPU                 BITMAP                  "Resources\\cpu.bmp"
+
+IDB_EMPTY               BITMAP                  "Resources\\empty.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_FILE_NOT_FOUND      "Can't find file specified ""%s"""
+    IDS_CONFIG_CORRUPTED    "Configuration file ""%s"" is corrupted"
+	IDS_CONFIG_VERSION		"Wrong configuration file version"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

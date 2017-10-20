@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="base64.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Driver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Group.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RadioProperty.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Property.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckProperty.cpp">
+      <Filter>Source Files\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="ChoiceProperty.cpp">
+      <Filter>Source Files\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="FloatProperty.cpp">
+      <Filter>Source Files\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="LabelProperty.cpp">
+      <Filter>Source Files\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="IntegerProperty.cpp">
+      <Filter>Source Files\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="TextProperty.cpp">
+      <Filter>Source Files\Properties</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base64.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Driver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Group.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WinMain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RadioProperty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Property.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckProperty.h">
+      <Filter>Header Files\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="ChoiceProperty.h">
+      <Filter>Header Files\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="FloatProperty.h">
+      <Filter>Header Files\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="IntegerProperty.h">
+      <Filter>Header Files\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="LabelProperty.h">
+      <Filter>Header Files\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="TextProperty.h">
+      <Filter>Header Files\Properties</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="config.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3dfx.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\directx.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\cpu.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\empty.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\NFS3.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\NFS4.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\NFS3.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\NFS4.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\opengl.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\settings.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\question.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\icon.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\config.manifest">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{4debb8cd-e550-4007-9d45-dcd20ada1bc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{2e741a1a-b0a0-4177-a4ec-0eeb4be08819}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{fc91d819-5bc2-4c51-8c32-d7bcf34caefb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Properties">
+      <UniqueIdentifier>{1ce2938b-7431-451a-b9ff-ab6b59a762e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Properties">
+      <UniqueIdentifier>{f799db2f-ba72-4ec9-8738-cc0ca7818746}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
