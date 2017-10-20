@@ -18,7 +18,6 @@
 #define CONFIG_EXT ".xml"
 #define IMAGE_EXT ".bmp"
 
-//#define CLASS_MAIN "NFS_MP_C"
 #define CLASS_DRIVER "NFS_MP_CD"
 
 #define SPACER 6
@@ -60,7 +59,6 @@ hImageNone;
 
 HWND hWndMain, hWndChild;
 HWND btnOptions, btnLaunch, btnSave, btnReadme, lblButtonsRule, imgDriver, gpFirst;
-//HWND btnCompatibility;
 
 Config* config;
 Driver* currentDriver;
@@ -516,7 +514,7 @@ HWND CreateLabel(HWND hWnd, HWND parent, LPCTSTR text, LPSTR description, INT x,
 
 		GetTextSize(hWndLabel, ntext, &size);
 
-		if (description)
+		if (description && *description)
 		{
 			CreateToolTip(hWnd, hWndLabel, description);
 
@@ -1588,12 +1586,6 @@ VOID CheckLayout(BOOL resize)
 		SetWindowPos(lblButtonsRule, NULL, rect.left, rect.top, 0, 0, SWP_NOSIZE | SWP_NOZORDER | SWP_SHOWWINDOW);
 		rect.top += 2 + SPACER;
 
-		/*if (btnCompatibility)
-		{
-			SetWindowPos(btnCompatibility, NULL, rect.left, rect.top, 0, 0, SWP_NOSIZE | SWP_NOZORDER | SWP_SHOWWINDOW);
-			rect.top += BTN_HEIGHT + SPACER;
-		}*/
-
 		SetWindowPos(btnReadme, btnLaunch, rect.left, rect.top, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
 
 		SetWindowPos(gpFirst, btnReadme, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
@@ -1621,9 +1613,6 @@ VOID CheckLayout(BOOL resize)
 		SetWindowPos(btnLaunch, btnOptions, initRunLoc.x, initRunLoc.y, 0, 0, SWP_NOSIZE);
 		SetWindowPos(lblButtonsRule, NULL, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_HIDEWINDOW);
 		SetWindowPos(btnReadme, NULL, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_HIDEWINDOW);
-
-		/*if (btnCompatibility)
-			SetWindowPos(btnCompatibility, NULL, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_HIDEWINDOW);*/
 
 		List<HWND>* hiddenGroupsItem = hiddenGroups;
 		if (hiddenGroupsItem && hiddenGroupsItem->IsCreated())
@@ -1840,13 +1829,6 @@ INT InitMainWindow(INT nCmdShow)
 
 		btnReadme = CreateButton(hWndMain, BUTTON_README, GP_PADDING_H, btnTop, mainEvents, btnReadme_Command);
 		lblButtonsRule = CreateRule(hWndMain, GP_PADDING_H, btnTop);
-
-		/*OSVERSIONINFO info;
-		info.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-		GetVersionEx(&info);
-
-		if (info.dwMajorVersion >= 5)
-			btnCompatibility = CreateButton(hWndMain, BUTTON_COMPATIBILITY, GP_PADDING_H, btnTop, mainEvents);*/
 
 		formMinHeight = btnTop + BTN_HEIGHT + GP_PADDING_V;
 
