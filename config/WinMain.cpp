@@ -18,8 +18,6 @@
 #define CONFIG_EXT ".xml"
 #define IMAGE_EXT ".bmp"
 
-#define CLASS_DRIVER "NFS_MP_CD"
-
 #define SPACER 6
 #define ROW_HEIGHT 24
 #define GP_MAIN_LEFT 146
@@ -41,6 +39,9 @@
 #define FORM_MAIN_STYLE  WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
 #define FORM_DRIVER_STYLE  WS_CAPTION | WS_SYSMENU
 
+#define CLASS_DRIVER "NFS_MP_CD"
+TCHAR* CLASS_MAIN;
+
 BOOL isFullLayout = FALSE;
 POINT initRunLoc, initSaveLoc;
 DWORD formMinHeight, formMaxHeight;
@@ -49,13 +50,7 @@ HINSTANCE hInst;
 HFONT hFont;
 HCURSOR hCursor;
 HICON hIcon;
-HANDLE hProcessInfo,
-hOptions,
-hIconHelp,
-hImageD3d,
-hImageVoodoo,
-hImageSoftware,
-hImageNone;
+HANDLE hProcessInfo, hOptions, hIconHelp, hImageD3d, hImageVoodoo, hImageSoftware, hImageNone;
 
 HWND hWndMain, hWndChild;
 HWND btnOptions, btnLaunch, btnSave, btnReadme, lblButtonsRule, imgDriver, gpFirst;
@@ -69,10 +64,6 @@ List<HWND>* hiddenGroups;
 
 Dictionary<DWORD, EVENT_HANDLER>* mainEvents;
 Dictionary<DWORD, EVENT_HANDLER>* childEvents;
-
-LPWNDCLASS notifyClass;
-
-TCHAR* CLASS_MAIN;
 
 #pragma region Windows Proc
 LRESULT CALLBACK WndMainProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -338,7 +329,7 @@ HWND CreateForm(HWND parent, LPCTSTR className, LPCTSTR windowName, DWORD width,
 		className,
 		windowName,
 		dwStyle,
-		CW_USEDEFAULT, 0,
+		CW_USEDEFAULT, CW_USEDEFAULT,
 		rect.right - rect.left,
 		rect.bottom - rect.top,
 		parent,
@@ -1795,111 +1786,108 @@ INT InitMainWindow(INT nCmdShow)
 	}
 	delete fi;
 
-	if (hWndMain)
+	// Load image
+	HWND hWndImage = CreateImage(hWndMain, BTN_WIDTH);
+	TCHAR imgPath[MAX_PATH];
+	sprintf(imgPath, "%s\\%s%s", appPath, fileName, IMAGE_EXT);
+
+	HANDLE hImage;
+	if (access(imgPath, NULL))
+		hImage = LoadImage(hInst, (LPCTSTR)IDB_CONFIG, IMAGE_BITMAP, 0, 0, LR_DEFAULTCOLOR);
+	else
+		hImage = LoadImage(hInst, imgPath, IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+
+	if (!hImage)
+		FileNotExists(imgPath);
+
+	SendMessage(hWndImage, STM_SETIMAGE, IMAGE_BITMAP, (LPARAM)hImage);
+
+	mainEvents = new Dictionary<DWORD, EVENT_HANDLER>();
+
+	DWORD left = 0;
+	DWORD top = SPACER, gpWidth = FORM_MAIN_WIDTH - GP_PADDING_H - GP_MAIN_LEFT;
+	gpFirst = AddPropertiesTitle(hWndMain, config->properties, GP_MAIN_LEFT, gpWidth, &left, &top, mainEvents);
+	AddPropertiesValue(hWndMain, gpFirst, config->properties, left, gpWidth, mainEvents);
+
+	DWORD btnTop = top + GP_PADDING_V;
+	btnOptions = CreateButton(hWndMain, BUTTON_MORE_OPTIONS, GP_PADDING_H, btnTop, mainEvents, btnOption_Command);
+	left = FORM_MAIN_WIDTH - GP_PADDING_H - BTN_WIDTH;
+	btnSave = CreateButton(hWndMain, BUTTON_SAVE, left, btnTop, mainEvents, btnSave_Command);
+	left -= SPACER + BTN_WIDTH;
+	btnLaunch = CreateButton(hWndMain, BUTTON_LAUNCH, left, btnTop, mainEvents, btnLaunch_Command, TRUE);
+
+	btnReadme = CreateButton(hWndMain, BUTTON_README, GP_PADDING_H, btnTop, mainEvents, btnReadme_Command);
+	lblButtonsRule = CreateRule(hWndMain, GP_PADDING_H, btnTop);
+
+	formMinHeight = btnTop + BTN_HEIGHT + GP_PADDING_V;
+
+	left = 0;
+	hiddenGroups = new List<HWND>();
+	List<Group*>* groupItem = config->groups;
+	if (groupItem && groupItem->IsCreated())
 	{
-		// Load image
-		HWND hWndImage = CreateImage(hWndMain, BTN_WIDTH);
-		TCHAR imgPath[MAX_PATH];
-		sprintf(imgPath, "%s\\%s%s", appPath, fileName, IMAGE_EXT);
-
-		HANDLE hImage;
-		if (access(imgPath, NULL))
-			hImage = LoadImage(hInst, (LPCTSTR)IDB_CONFIG, IMAGE_BITMAP, 0, 0, LR_DEFAULTCOLOR);
-		else
-			hImage = LoadImage(hInst, imgPath, IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
-
-		if (!hImage)
-			FileNotExists(imgPath);
-
-		SendMessage(hWndImage, STM_SETIMAGE, IMAGE_BITMAP, (LPARAM)hImage);
-
-		mainEvents = new Dictionary<DWORD, EVENT_HANDLER>();
-
-		DWORD left = 0;
-		DWORD top = SPACER, gpWidth = FORM_MAIN_WIDTH - GP_PADDING_H - GP_MAIN_LEFT;
-		gpFirst = AddPropertiesTitle(hWndMain, config->properties, GP_MAIN_LEFT, gpWidth, &left, &top, mainEvents);
-		AddPropertiesValue(hWndMain, gpFirst, config->properties, left, gpWidth, mainEvents);
-
-		DWORD btnTop = top + GP_PADDING_V;
-		btnOptions = CreateButton(hWndMain, BUTTON_MORE_OPTIONS, GP_PADDING_H, btnTop, mainEvents, btnOption_Command);
-		left = FORM_MAIN_WIDTH - GP_PADDING_H - BTN_WIDTH;
-		btnSave = CreateButton(hWndMain, BUTTON_SAVE, left, btnTop, mainEvents, btnSave_Command);
-		left -= SPACER + BTN_WIDTH;
-		btnLaunch = CreateButton(hWndMain, BUTTON_LAUNCH, left, btnTop, mainEvents, btnLaunch_Command, TRUE);
-
-		btnReadme = CreateButton(hWndMain, BUTTON_README, GP_PADDING_H, btnTop, mainEvents, btnReadme_Command);
-		lblButtonsRule = CreateRule(hWndMain, GP_PADDING_H, btnTop);
-
-		formMinHeight = btnTop + BTN_HEIGHT + GP_PADDING_V;
-
-		left = 0;
-		hiddenGroups = new List<HWND>();
-		List<Group*>* groupItem = config->groups;
-		if (groupItem && groupItem->IsCreated())
+		do
 		{
-			do
-			{
-				top += SPACER;
-				HWND hWndGroupBox = AddPropertiesTitle(hWndMain, groupItem->item->properties, GP_MAIN_LEFT, gpWidth, &left, &top, mainEvents, groupItem->item->name);
-				hiddenGroups->Add(hWndGroupBox, TypePtrNone);
-			} while (groupItem = groupItem->Next());
-		}
-
-		formMaxHeight = top + GP_PADDING_V;
-
-		List<HWND>* hWndGroupBoxItem = hiddenGroups;
-		groupItem = config->groups;
-		if (hWndGroupBoxItem && hWndGroupBoxItem->IsCreated() && groupItem && groupItem->IsCreated())
-		{
-			do
-				AddPropertiesValue(hWndMain, hWndGroupBoxItem->item, groupItem->item->properties, left, gpWidth, mainEvents, (BOOL)groupItem->item->name);
-			while ((hWndGroupBoxItem = hWndGroupBoxItem->Next()) && (groupItem = groupItem->Next()));
-		}
-
-		RECT rectBtn;
-		GetWindowRect(btnLaunch, &rectBtn);
-		initRunLoc.x = rectBtn.left;
-		initRunLoc.y = rectBtn.top;
-		ScreenToClient(hWndMain, &initRunLoc);
-
-		GetWindowRect(btnSave, &rectBtn);
-		initSaveLoc.x = rectBtn.left;
-		initSaveLoc.y = rectBtn.top;
-		ScreenToClient(hWndMain, &initSaveLoc);
-
-		CheckLayout(FALSE);
-
-		RECT rectForm;
-		rectForm.left = 0;
-		rectForm.top = 0;
-		rectForm.right = FORM_MAIN_WIDTH;
-		rectForm.bottom = formMaxHeight;
-		AdjustWindowRect(&rectForm, FORM_MAIN_STYLE, FALSE);
-
-		RECT rectMon;
-		GetMonitorRect(hWndMain, &rectMon);
-
-		rectForm.right -= rectForm.left;
-		rectForm.bottom -= rectForm.top;
-		rectForm.left = rectMon.left + ((rectMon.right - rectMon.left) - rectForm.right) / 2;
-		rectForm.top = rectMon.top + ((rectMon.bottom - rectMon.top) - rectForm.bottom) / 2;
-
-		SetWindowPos(hWndMain, NULL, rectForm.left, (rectForm.top >= rectMon.top ? rectForm.top : rectMon.top), rectForm.right, (isFullLayout ? rectForm.bottom : rectForm.bottom - formMaxHeight + formMinHeight), SWP_NOZORDER);
-
-		ShowWindow(hWndMain, nCmdShow);
-
-		MSG msg;
-		while (GetMessage(&msg, NULL, NULL, NULL))
-		{
-			if (!IsDialogMessage(hWndChild ? hWndChild : hWndMain, &msg))
-			{
-				TranslateMessage(&msg);
-				DispatchMessage(&msg);
-			}
-		}
-
-		return msg.wParam;
+			top += SPACER;
+			HWND hWndGroupBox = AddPropertiesTitle(hWndMain, groupItem->item->properties, GP_MAIN_LEFT, gpWidth, &left, &top, mainEvents, groupItem->item->name);
+			hiddenGroups->Add(hWndGroupBox, TypePtrNone);
+		} while (groupItem = groupItem->Next());
 	}
+
+	formMaxHeight = top + GP_PADDING_V;
+
+	List<HWND>* hWndGroupBoxItem = hiddenGroups;
+	groupItem = config->groups;
+	if (hWndGroupBoxItem && hWndGroupBoxItem->IsCreated() && groupItem && groupItem->IsCreated())
+	{
+		do
+			AddPropertiesValue(hWndMain, hWndGroupBoxItem->item, groupItem->item->properties, left, gpWidth, mainEvents, (BOOL)groupItem->item->name);
+		while ((hWndGroupBoxItem = hWndGroupBoxItem->Next()) && (groupItem = groupItem->Next()));
+	}
+
+	RECT rectBtn;
+	GetWindowRect(btnLaunch, &rectBtn);
+	initRunLoc.x = rectBtn.left;
+	initRunLoc.y = rectBtn.top;
+	ScreenToClient(hWndMain, &initRunLoc);
+
+	GetWindowRect(btnSave, &rectBtn);
+	initSaveLoc.x = rectBtn.left;
+	initSaveLoc.y = rectBtn.top;
+	ScreenToClient(hWndMain, &initSaveLoc);
+
+	CheckLayout(FALSE);
+
+	RECT rectForm;
+	rectForm.left = 0;
+	rectForm.top = 0;
+	rectForm.right = FORM_MAIN_WIDTH;
+	rectForm.bottom = formMaxHeight;
+	AdjustWindowRect(&rectForm, FORM_MAIN_STYLE, FALSE);
+
+	RECT rectMon;
+	GetMonitorRect(hWndMain, &rectMon);
+
+	rectForm.right -= rectForm.left;
+	rectForm.bottom -= rectForm.top;
+	rectForm.left = rectMon.left + ((rectMon.right - rectMon.left) - rectForm.right) / 2;
+	rectForm.top = rectMon.top + ((rectMon.bottom - rectMon.top) - rectForm.bottom) / 2;
+
+	SetWindowPos(hWndMain, NULL, rectForm.left, (rectForm.top >= rectMon.top ? rectForm.top : rectMon.top), rectForm.right, (isFullLayout ? rectForm.bottom : rectForm.bottom - formMaxHeight + formMinHeight), SWP_NOZORDER);
+
+	ShowWindow(hWndMain, nCmdShow);
+
+	MSG msg;
+	while (GetMessage(&msg, NULL, NULL, NULL))
+	{
+		if (!IsDialogMessage(hWndChild ? hWndChild : hWndMain, &msg))
+		{
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+	}
+
+	return msg.wParam;
 
 	return NULL;
 }
@@ -1975,7 +1963,6 @@ VOID InitDriverWindow(Driver* driver, DWORD deviceNumber)
 	HWND btnCancel = CreateButton(hWndChild, BUTTON_CANCEL, left, top, childEvents, btnCancel_Command);
 	left -= SPACER + BTN_WIDTH;
 	HWND btnOk = CreateButton(hWndChild, BUTTON_OK, left, top, childEvents, btnOk_Command, TRUE);
-
 	SetWindowPos(btnCancel, btnOk, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
 
 	RECT rDriver;
@@ -1985,19 +1972,29 @@ VOID InitDriverWindow(Driver* driver, DWORD deviceNumber)
 	rDriver.bottom = top + BTN_HEIGHT + GP_PADDING_V;
 	AdjustWindowRect(&rDriver, FORM_DRIVER_STYLE, FALSE);
 
-	DWORD driverWidth = rDriver.right - rDriver.left;
-	DWORD driverHeight = rDriver.bottom - rDriver.top;
+	DWORD winWidth = rDriver.right - rDriver.left;
+	DWORD winHeight = rDriver.bottom - rDriver.top;
 
 	RECT rMain;
 	GetWindowRect(hWndMain, &rMain);
 
-	SetWindowPos(hWndChild, NULL,
-		rMain.left + ((rMain.right - rMain.left) - (rDriver.right - rDriver.left)) / 2,
-		rMain.top + ((rMain.bottom - rMain.top) - (rDriver.bottom - rDriver.top)) / 2,
-		driverWidth,
-		driverHeight,
-		SWP_NOZORDER);
+	INT winLeft = rMain.left + ((rMain.right - rMain.left) - (rDriver.right - rDriver.left)) / 2;
+	INT winTop = rMain.top + ((rMain.bottom - rMain.top) - (rDriver.bottom - rDriver.top)) / 2;
 
+	RECT rectMon;
+	GetMonitorRect(hWndMain, &rectMon);
+
+	if (winLeft + winWidth > rectMon.right)
+		winLeft = rectMon.right - winWidth;
+	if (winLeft < rectMon.left)
+		winLeft = rectMon.left;
+
+	if (winTop + winHeight > rectMon.bottom)
+		winTop = rectMon.bottom - winHeight;
+	if (winTop < rectMon.top)
+		winTop = rectMon.top;
+
+	SetWindowPos(hWndChild, NULL, winLeft, winTop, winWidth, winHeight, SWP_NOZORDER);
 	ShowWindow(hWndChild, SW_SHOW);
 }
 #pragma endregion
