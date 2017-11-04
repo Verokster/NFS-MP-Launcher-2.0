@@ -123,7 +123,7 @@ BOOL ChoiceProperty::Read(TCHAR* iniFile)
 
 BOOL ChoiceProperty::Save(TCHAR* iniFile)
 {
-	if (this->value != this->initialValue && strcmp(this->value, this->initialValue))
+	if (this->value != this->initialValue && (!this->initialValue || strcmp(this->value, this->initialValue)))
 	{
 		if (!WritePrivateProfileString(this->section, this->key, this->value, iniFile))
 			return FALSE;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1251"?>
-<root version="2.0.4.3">
+<root version="2.0.4.4">
   <main exe="nfs3.exe" ini="nfs3.ini">
     <!-- Language -->
     <property section="NFS3" key="Language" type="choice">
@@ -431,9 +431,12 @@
         <property inherit="exclusive" />
         <property inherit="resolution" key="OGL_RESOLUTION" />
         <property inherit="aspect" key="OGL_ASPECT" />
+        <property inherit="colorbpp" />
         <property inherit="refresh" key="OGL_REFRESH" />
         <property inherit="vsync" key="OGL_VSYNC" />
         <property inherit="gamma" key="OGL_GAMMA" />
+        <property inherit="filter" />
+        <property inherit="zbpp" />
       </group>
     </driver>
     <driver key="opengl3" ini="thrash.ini" multi="1">
@@ -799,6 +802,72 @@
       </option>
       <option key="10">
         <value>1.5</value>
+      </option>
+    </property>
+    <property name="filter" section="ENV" key="OGL_TEXFILTER" type="choice">
+      <title>
+        <value lang="enu">Texture filtering</value>
+        <value lang="rus">Фильтрация текстур</value>
+        <value lang="ukr">Фільтрація текстур</value>
+      </title>
+      <option key="0">
+        <value lang="enu">By application (Default)</value>
+        <value lang="rus">Управляется игрой (По умолчанию)</value>
+        <value lang="ukr">Керується грою (За замовчуванням)</value>
+      </option>
+      <option key="1">
+        <value lang="enu">On</value>
+        <value lang="rus">Вкл.</value>
+        <value lang="ukr">Так</value>
+      </option>
+      <option key="2">
+        <value lang="enu">Off</value>
+        <value lang="rus">Выкл.</value>
+        <value lang="ukr">Ні</value>
+      </option>
+    </property>
+    <property name="colorbpp" section="ENV" key="OGL_COLORDEPTH" type="radio">
+      <title>
+        <value lang="enu">Color depth</value>
+        <value lang="rus">Глубина цвета</value>
+        <value lang="ukr">Глибина кольору</value>
+      </title>
+      <option key="16">
+        <value lang="enu">16 bpp</value>
+        <value lang="rus">16 бит</value>
+        <value lang="ukr">16 біт</value>
+      </option>
+      <option key="32">
+        <value lang="enu">32 bpp</value>
+        <value lang="rus">32 бит</value>
+        <value lang="ukr">32 біт</value>
+      </option>
+    </property>
+    <property name="zbpp" section="ENV" key="OGL_ZDEPTH" type="choice">
+      <title>
+        <value lang="enu">Depth buffer</value>
+        <value lang="rus">Z-буффер</value>
+        <value lang="ukr">Z-буфер</value>
+      </title>
+      <option key="0">
+        <value lang="enu">By application (Default)</value>
+        <value lang="rus">Управляется игрой (По умолчанию)</value>
+        <value lang="ukr">Керується грою (За замовчуванням)</value>
+      </option>
+      <option key="16">
+        <value lang="enu">16 bpp</value>
+        <value lang="rus">16 бит</value>
+        <value lang="ukr">16 біт</value>
+      </option>
+      <option key="24">
+        <value lang="enu">24 bpp</value>
+        <value lang="rus">24 бит</value>
+        <value lang="ukr">24 біт</value>
+      </option>
+      <option key="32">
+        <value lang="enu">32 bpp</value>
+        <value lang="rus">32 бит</value>
+        <value lang="ukr">32 біт</value>
       </option>
     </property>
   </base>
