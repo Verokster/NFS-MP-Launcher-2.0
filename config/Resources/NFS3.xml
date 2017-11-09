@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1251"?>
-<root version="2.0.4.6">
+<root version="2.0.4.7">
   <main exe="nfs3.exe" ini="nfs3.ini">
     <!-- Language -->
     <property section="NFS3" key="Language" type="choice">
@@ -447,13 +447,6 @@
         <property inherit="file" />
         <property inherit="type" />
         <property inherit="fog" />
-        <property section="ENV" key="OGL_INDEXED_VBO" type="check">
-          <title>
-            <value lang="enu">Indexed VBO</value>
-            <value lang="rus">Индексированый VBO</value>
-            <value lang="ukr">Індексований VBO</value>
-          </title>
-        </property>
       </group>
       <group>
         <property inherit="windowed" section="ENV" key="OGL_WINDOWED" />
