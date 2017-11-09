@@ -294,6 +294,8 @@ LRESULT CALLBACK PanelProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
 #pragma region Threads Proc
 DWORD WINAPI GameProc(LPVOID lpParameter)
 {
+	RECT rect;
+	GetWindowRect(hWndMain, &rect);
 	ShowWindow(hWndMain, SW_MINIMIZE);
 
 	SHELLEXECUTEINFO shExecInfo = { NULL };
@@ -310,6 +312,7 @@ DWORD WINAPI GameProc(LPVOID lpParameter)
 	hProcessInfo = NULL;
 
 	ShowWindow(hWndMain, SW_RESTORE);
+	SetWindowPos(hWndMain, NULL, rect.left, rect.top, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
 
 	return TRUE;
 }
