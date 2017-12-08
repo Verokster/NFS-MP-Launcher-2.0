@@ -37,7 +37,7 @@
 #define IDB_CONFIG						103
 #define IDB_3DFX						104
 #define IDB_DIRECTX						105
-//#define IDB_OPENGL					106
+#define IDB_OPENGL						106
 #define IDB_CPU							107
 #define IDB_EMPTY						108
 

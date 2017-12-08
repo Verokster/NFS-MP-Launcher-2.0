@@ -32,6 +32,7 @@
 #define TYPE_PROPERTY						"TYPE"
 #define TYPE_D3D							"D3D"
 #define TYPE_VOODOO							"VOODOO"
+#define TYPE_OPENGL							"OPENGL"
 #define TYPE_SOFTWARE						"SOFTWARE"
 //#define TYPE_NONE							"NONE"
 

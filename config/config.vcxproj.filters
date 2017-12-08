@@ -146,6 +146,12 @@
     <None Include="Resources\config.manifest">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="Resources\NFS5.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\NFS5.xml">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

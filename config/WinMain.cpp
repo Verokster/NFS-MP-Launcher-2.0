@@ -74,7 +74,7 @@ HINSTANCE hInst;
 HFONT hFont;
 HCURSOR hCursor;
 HICON hIcon;
-HANDLE hProcessInfo, hOptions, hIconHelp, hImageD3d, hImageVoodoo, hImageSoftware, hImageNone;
+HANDLE hProcessInfo, hOptions, hIconHelp, hImageD3D, hImageVoodoo, hImageOpenGL, hImageSoftware, hImageNone;
 
 HWND hWndMain, hWndChild;
 HWND btnOptions, btnLaunch, btnSave, btnReadme, lblButtonsRule, imgDriver, gpFirst;
@@ -1519,15 +1519,21 @@ VOID CheckDriverImage(TCHAR* key)
 	HANDLE hImage = NULL;
 	if (!strcmp(name, TYPE_D3D))
 	{
-		if (!hImageD3d)
-			hImageD3d = LoadImage(hInst, (LPCTSTR)IDB_DIRECTX, IMAGE_BITMAP, 0, 0, LR_DEFAULTCOLOR);
-		hImage = hImageD3d;
+		if (!hImageD3D)
+			hImageD3D = LoadImage(hInst, (LPCTSTR)IDB_DIRECTX, IMAGE_BITMAP, 0, 0, LR_DEFAULTCOLOR);
+		hImage = hImageD3D;
 	}
 	else if (!strcmp(name, TYPE_VOODOO))
 	{
 		if (!hImageVoodoo)
 			hImageVoodoo = LoadImage(hInst, (LPCTSTR)IDB_3DFX, IMAGE_BITMAP, 0, 0, LR_DEFAULTCOLOR);
 		hImage = hImageVoodoo;
+	}
+	else if (!strcmp(name, TYPE_OPENGL))
+	{
+		if (!hImageOpenGL)
+			hImageOpenGL = LoadImage(hInst, (LPCTSTR)IDB_OPENGL, IMAGE_BITMAP, 0, 0, LR_DEFAULTCOLOR);
+		hImage = hImageOpenGL;
 	}
 	else if (!strcmp(name, TYPE_SOFTWARE))
 	{

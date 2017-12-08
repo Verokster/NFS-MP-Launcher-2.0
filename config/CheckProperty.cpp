@@ -38,14 +38,10 @@ CheckProperty::CheckProperty(Property* prop) : Property(prop)
 
 BOOL CheckProperty::Read(TCHAR* iniFile)
 {
-	TCHAR text[256];
-	BOOL res = GetPrivateProfileString(this->section, this->key, NULL, text, sizeof(text), iniFile);
-	if (res)
-	{
-		this->value = atoi(text);
-		this->initialValue = value;
-	}
-	return res;
+	this->value = GetPrivateProfileInt(this->section, this->key, 0, iniFile);
+	this->initialValue = value;
+
+	return TRUE;
 }
 
 BOOL CheckProperty::Save(TCHAR* iniFile)
