@@ -152,6 +152,12 @@
     <None Include="Resources\NFS5.xml">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="Resources\NFS2SE.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\NFS2SE.xml">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

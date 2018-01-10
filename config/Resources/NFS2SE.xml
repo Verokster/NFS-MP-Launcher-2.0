@@ -23,18 +23,18 @@
 	SOFTWARE.
 -->
 <root version="2.0.5.0">
-  <main exe="nfs5.exe" ini="nfs5.ini">
+  <main exe="nfs2se.exe" ini="nfs2se.ini">
     <!-- Language -->
-    <property section="NFS5" key="Language" type="choice">
+    <property section="NFS2SE" key="Language" type="choice">
       <title>
         <value lang="enu">Language</value>
         <value lang="rus">Язык</value>
         <value lang="ukr">Мова</value>
       </title>
       <description>
-        <value lang="enu">Language which is officially supported by NFS5 (English/German/French/Spanish/Italian/Swedish/Brazilian Portuguese). Language files have to be already installed.</value>
-        <value lang="rus">Один из языков, официально поддерживаемых NFS5 (Английский/Немецкий/Французский/Испанский/Итальянский/Шведский/Бразильско португальский). Языковые файлы выбранного языка должны быть установлены, иначе вы получите ошибку.</value>
-        <value lang="ukr">Одна з мов, офіційно підтримуваних NFS5 (Англійська/Німецька/Французька/Іспанська/Італійська/Шведська/Бразильська португальська). Мовні файли вибраної мови повинні бути встановлені, інакше ви отримаєте помилку.</value>
+        <value lang="enu">Language which is officially supported by NFS2SE (English/German/French/Spanish/Italian/Swedish). Language files have to be already installed.</value>
+        <value lang="rus">Один из языков, официально поддерживаемых NFS2SE (Английский/Немецкий/Французский/Испанский/Итальянский/Шведский). Языковые файлы выбранного языка должны быть установлены, иначе вы получите ошибку.</value>
+        <value lang="ukr">Одна з мов, офіційно підтримуваних NFS2SE (Англійська/Німецька/Французька/Іспанська/Італійська/Шведська). Мовні файли вибраної мови повинні бути встановлені, інакше ви отримаєте помилку.</value>
       </description>
       <option key="english">
         <value lang="enu">English</value>
@@ -66,14 +66,9 @@
         <value lang="rus">Шведский</value>
         <value lang="ukr">Шведська</value>
       </option>
-      <option key="portbrzl">
-        <value lang="enu">Brazilian Portuguese</value>
-        <value lang="rus">Бразильско португальский</value>
-        <value lang="ukr">Бразильська португальська</value>
-      </option>
     </property>
     <!-- Thrash Driver -->
-    <property section="NFS5" key="ThrashDriver" type="choice">
+    <property section="NFS2SE" key="ThrashDriver" type="choice">
       <title>
         <value lang="enu">Renderer</value>
         <value lang="rus">Рендерер</value>
@@ -87,12 +82,18 @@
       <option key="dgvoodoo">
         <value>dgVoodoo</value>
       </option>
+      <option key="dx5">
+        <value>DirectX 5</value>
+      </option>
+      <option key="dx6">
+        <value>DirectX 6</value>
+      </option>
       <option key="dx7">
         <value>DirectX 7</value>
       </option>
-      <!--<option key="dx8">
+      <option key="dx8">
         <value>DirectX 8</value>
-      </option>-->
+      </option>>
       <option key="glide3x">
         <value>Glide3x</value>
       </option>
@@ -119,19 +120,165 @@
       </title>
       <!-- WindowedMode -->
       <property inherit="windowed" />
-      <!-- Prefer32bitModes -->
-      <!--<property section="NFS5" key="Prefer32bitModes" type="check">
+      <property section="NFS2SE" key="Resolution" type="choice">
         <title>
-          <value lang="enu">32bit mode</value>
-          <value lang="rus">32-битный режим</value>
-          <value lang="ukr">32-бітний режим</value>
+          <value lang="enu">Screen resolution</value>
+          <value lang="rus">Разрешение экрана</value>
+          <value lang="ukr">Розширення екрану</value>
         </title>
         <description>
-          <value lang="enu">Hides 16 bit resolutions if similar 32 bit resolutions are available, also enables 32-bit rendering of the menu.</value>
-          <value lang="rus">Cкрывает 16-битные разрешения, если есть доступны аналогичные 32-битные разрешения, также включает 32-разрядную отрисовку меню.</value>
-          <value lang="ukr">Ховає 16-бітні розширення, якщо є доступні аналогічні 32-бітні розширення, також включає 32-розрядне відмальовування меню.</value>
+          <value lang="enu">Screen resolution. If selected resolution is not available, the game will reset it to the default resolution (640x480)</value>
+          <value lang="rus">Разрешение экрана. Если выбранное разрешение недоступно, то игра сбросить его на разрешение по умолчанию (640x480)</value>
+          <value lang="ukr">Роздільна здатність екрану. Якщо вибрание розширення недоступно, то гра скине його до розширення за замовчуванням (640x480)</value>
         </description>
-      </property>-->
+        <option key="0">
+          <value lang="enu">Max. available</value>
+          <value lang="rus">Макс. доступное</value>
+          <value lang="ukr">Макс. доступне</value>
+        </option>
+        <option key="1">
+          <value lang="enu">By desktop</value>
+          <value lang="rus">Как у рабочего стола</value>
+          <value lang="ukr">Як у робочого столу</value>
+        </option>
+        <option key="2">
+          <value lang="enu">640 x 480 (Default)</value>
+          <value lang="rus">640 x 480 (По умолчанию)</value>
+          <value lang="ukr">640 x 480 (За замовчуванням)</value>
+        </option>
+        <option key="3">
+          <value>800 x 600</value>
+        </option>
+        <option key="4">
+          <value>1024 x 600</value>
+        </option>
+        <option key="5">
+          <value>1024 x 768</value>
+        </option>
+        <option key="6">
+          <value>1152 x 864</value>
+        </option>
+        <option key="7">
+          <value>1280 x 720</value>
+        </option>
+        <option key="8">
+          <value>1280 x 768</value>
+        </option>
+        <option key="9">
+          <value>1280 x 800</value>
+        </option>
+        <option key="10">
+          <value>1280 x 960</value>
+        </option>
+        <option key="11">
+          <value>1280 x 1024</value>
+        </option>
+        <option key="12">
+          <value>1360 x 768</value>
+        </option>
+        <option key="13">
+          <value>1366 x 768</value>
+        </option>
+        <option key="14">
+          <value>1400 x 1050</value>
+        </option>
+        <option key="15">
+          <value>1440 x 900</value>
+        </option>
+        <option key="16">
+          <value>1440 x 1080</value>
+        </option>
+        <option key="17">
+          <value>1536 x 864</value>
+        </option>
+        <option key="18">
+          <value>1600 x 900</value>
+        </option>
+        <option key="19">
+          <value>1600 x 1200</value>
+        </option>
+        <option key="20">
+          <value>1680 x 1050</value>
+        </option>
+        <option key="21">
+          <value>1920 x 1080</value>
+        </option>
+        <option key="22">
+          <value>1920 x 1200</value>
+        </option>
+        <option key="23">
+          <value>1920 x 1440</value>
+        </option>
+        <option key="24">
+          <value>2048 x 1536</value>
+        </option>
+        <option key="25">
+          <value>2560 x 1440</value>
+        </option>
+        <option key="26">
+          <value>2560 x 1600</value>
+        </option>
+        <option key="27">
+          <value>3840 x 2160</value>
+        </option>
+        <option key="28">
+          <value>7680 x 4320</value>
+        </option>
+      </property>
+      <property section="NFS2SE" key="ClassicTextures" type="choice">
+        <title>
+          <value lang="enu">Textures type</value>
+          <value lang="rus">Тип текстур</value>
+          <value lang="ukr">Тип текстур</value>
+        </title>
+        <description>
+          <value lang="enu">Allow choose track textures between NFS2 classic edition and special edition (SE).</value>
+          <value lang="rus">Выбор типа текстур для трасс, между NFS2 Сlassic и Special Edition (SE).</value>
+          <value lang="ukr">Вибір типу текстур для трас, між NFS2 Сlassic і Special Edition (SE).</value>
+        </description>
+        <option key="0">
+          <value>Special Edition</value>
+        </option>
+        <option key="1">
+          <value>Сlassic Edition</value>
+        </option>
+      </property>
+      <property section="NFS2SE" key="Fog" type="check">
+        <title>
+          <value lang="enu">Fog</value>
+          <value lang="rus">Туман</value>
+          <value lang="ukr">Туман</value>
+        </title>
+        <description>
+          <value lang="enu">Enables fog effect on the tracks.</value>
+          <value lang="rus">Включает эффект тумана на трассах.</value>
+          <value lang="ukr">Вмикає ефект туману на треках.</value>
+        </description>
+      </property>
+      <property section="NFS2SE" key="Shading" type="check">
+        <title>
+          <value lang="enu">Shading</value>
+          <value lang="rus">Затенение</value>
+          <value lang="ukr">Затінення</value>
+        </title>
+        <description>
+          <value lang="enu">Enables gouraud shading for polygons.</value>
+          <value lang="rus">Включает эффект затенения для полигонов.</value>
+          <value lang="ukr">Вмикає ефект затінення для полігонів.</value>
+        </description>
+      </property>
+      <property section="NFS2SE" key="Filtering" type="check">
+        <title>
+          <value lang="enu">Filtering</value>
+          <value lang="rus">Фильтрация</value>
+          <value lang="ukr">Фільтрація</value>
+        </title>
+        <description>
+          <value lang="enu">Enables linear filtering for textures.</value>
+          <value lang="rus">Включает линейную фильтрацию текстур.</value>
+          <value lang="ukr">Вмикає лінійну фільтрацію текстур.</value>
+        </description>
+      </property>
     </group>
     <group>
       <title>
@@ -140,7 +287,7 @@
         <value lang="ukr">Система</value>
       </title>
       <!-- SingleProcAffinity -->
-      <property section="NFS5" key="SingleProcAffinity" type="check">
+      <property section="NFS2SE" key="SingleProcAffinity" type="check">
         <title>
           <value lang="enu">Single proc affinity</value>
           <value lang="rus">Использовать одно ядро</value>
@@ -152,20 +299,8 @@
           <value lang="ukr">Задіяти прив'язку процеса гри до одного ядра, за замовчуванням вимкнено, не рекомендується.</value>
         </description>
       </property>
-      <property section="NFS5" key="CpuLimit" type="integer" min="0" max="4294">
-        <title>
-          <value lang="enu">CPU Frequency (MHz)</value>
-          <value lang="rus">Частота ЦП (МГц)</value>
-          <value lang="ukr">Частота ЦП (МГц)</value>
-        </title>
-        <description>
-          <value lang="enu">This option reports fake CPU frequency to game. Default is - 0 (auto calculation).</value>
-          <value lang="rus">Эта опция сообщает игре заданую частоту процесслоа. По умолчанию - 0 (автоматический расчет).</value>
-          <value lang="ukr">Ця опція повідомляє грі задану частоту процесора. За умовчанням - 0 (автоматичний розрахунок).</value>
-        </description>
-      </property>
       <!-- NoErrorReporting -->
-      <property section="NFS5" key="NoErrorReporting" type="check">
+      <property section="NFS2SE" key="NoErrorReporting" type="check">
         <title>
           <value lang="enu">No error reporting</value>
           <value lang="rus">Откл. cообщения о ошибках</value>
@@ -185,7 +320,7 @@
         <value lang="ukr">Запуск</value>
       </title>
       <!-- NoMovies -->
-      <property section="NFS5" key="NoMovies" type="check">
+      <property section="NFS2SE" key="NoMovies" type="check">
         <title>
           <value lang="enu">No movies</value>
           <value lang="rus">Выкл. видеоролики</value>
@@ -209,6 +344,32 @@
         <property inherit="type" />
       </group>
     </driver>
+    <driver key="dx5" ini="thrash.ini">
+      <title>
+        <value>DirectX 5</value>
+      </title>
+      <group>
+        <property inherit="file" />
+        <property inherit="type" />
+      </group>
+      <group>
+        <property inherit="maxwin" />
+        <property inherit="plock" />
+      </group>
+    </driver>
+    <driver key="dx6" ini="thrash.ini">
+      <title>
+        <value>DirectX 6</value>
+      </title>
+      <group>
+        <property inherit="file" />
+        <property inherit="type" />
+      </group>
+      <group>
+        <property inherit="maxwin" />
+        <property inherit="plock" />
+      </group>
+    </driver>
     <driver key="dx7" ini="thrash.ini" multi="1">
       <title>
         <value>DirectX 7</value>
@@ -222,7 +383,7 @@
         <property inherit="plock" />
       </group>
     </driver>
-    <!--<driver key="dx8" ini="thrash.ini" multi="1">
+    <driver key="dx8" ini="thrash.ini" multi="1">
       <title>
         <value>DirectX 8</value>
       </title>
@@ -230,7 +391,7 @@
         <property inherit="file" />
         <property inherit="type" />
       </group>
-    </driver>-->
+    </driver>
     <driver key="glide3x" ini="thrash.ini">
       <title>
         <value>Glide3x</value>
@@ -309,7 +470,6 @@
         <property inherit="refresh" key="OGL_REFRESH" />
         <property inherit="vsync" key="OGL_VSYNC" />
         <property inherit="gamma" key="OGL_GAMMA" />
-        <property inherit="filter" />
         <property inherit="zbpp" />
       </group>
     </driver>
@@ -330,7 +490,6 @@
         <property inherit="refresh" key="OGL_REFRESH" />
         <property inherit="vsync" key="OGL_VSYNC" />
         <property inherit="gamma" key="OGL_GAMMA" />
-        <property inherit="filter" />
         <property inherit="zbpp" />
       </group>
     </driver>
@@ -411,7 +570,7 @@
         <value lang="ukr">Запобігає зупинці DWM коли гру запущено в віконному режимі, але в цьому випадку вбудований скріншотер не працюватиме.</value>
       </description>
     </property>
-    <property name="windowed" section="NFS5" key="WindowedMode" type="check">
+    <property name="windowed" section="NFS2SE" key="WindowedMode" type="check">
       <title>
         <value lang="enu">Windowed mode</value>
         <value lang="rus">Оконный режим</value>
@@ -659,28 +818,6 @@
       </option>
       <option key="10">
         <value>1.5</value>
-      </option>
-    </property>
-    <property name="filter" section="ENV" key="OGL_TEXFILTER" type="choice">
-      <title>
-        <value lang="enu">Texture filtering</value>
-        <value lang="rus">Фильтрация текстур</value>
-        <value lang="ukr">Фільтрація текстур</value>
-      </title>
-      <option key="0">
-        <value lang="enu">By application (Default)</value>
-        <value lang="rus">Управляется игрой (По умолчанию)</value>
-        <value lang="ukr">Керується грою (За замовчуванням)</value>
-      </option>
-      <option key="1">
-        <value lang="enu">On</value>
-        <value lang="rus">Вкл.</value>
-        <value lang="ukr">Так</value>
-      </option>
-      <option key="2">
-        <value lang="enu">Off</value>
-        <value lang="rus">Выкл.</value>
-        <value lang="ukr">Ні</value>
       </option>
     </property>
     <property name="colorbpp" section="ENV" key="OGL_COLORDEPTH" type="radio">

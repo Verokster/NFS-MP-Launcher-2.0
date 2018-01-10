@@ -157,7 +157,9 @@ IDR_MANIFEST            RT_MANIFEST             "Resources\\config.manifest"
 // RCDATA
 //
 
-#ifdef _CONFIG_NFS3
+#ifdef _CONFIG_NFS2SE
+IDR_CONFIG              RCDATA                  "Resources\\NFS2SE.min.xml"
+#elif _CONFIG_NFS3
 IDR_CONFIG              RCDATA                  "Resources\\NFS3.min.xml"
 #elif _CONFIG_NFS4
 IDR_CONFIG              RCDATA                  "Resources\\NFS4.min.xml"
@@ -184,7 +186,9 @@ IDI_HELP                ICON                    "Resources\\question.ico"
 // Bitmap
 //
 
-#ifdef _CONFIG_NFS3
+#ifdef _CONFIG_NFS2SE
+IDB_CONFIG              BITMAP                  "Resources\\NFS2SE.bmp"
+#elif _CONFIG_NFS3
 IDB_CONFIG              BITMAP                  "Resources\\NFS3.bmp"
 #elif _CONFIG_NFS4
 IDB_CONFIG              BITMAP                  "Resources\\NFS4.bmp"
