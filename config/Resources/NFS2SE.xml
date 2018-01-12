@@ -251,7 +251,7 @@
           <value>Special Edition</value>
         </option>
         <option key="1">
-          <value>Ñlassic Edition</value>
+          <value>Classic Edition</value>
         </option>
       </property>
       <property section="NFS2SE" key="Fog" type="check">
