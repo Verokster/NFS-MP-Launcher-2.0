@@ -33,7 +33,7 @@ typedef VOID(*EVENT_HANDLER)(HWND hWnd, WORD code);
 typedef VOID(*CHECK_DRIVER)(TCHAR* key);
 
 #pragma region Creare Elements
-HWND CreateForm(HWND parent, LPCTSTR className, LPCTSTR windowName, DWORD width, DWORD height, DWORD dwStyle);
+HWND CreateForm(HWND parent, LPCTSTR className, LPCTSTR windowName, DWORD width, DWORD height, DWORD dwStyle, HWND* hPanel);
 HWND CreateToolTip(HWND hWnd, HWND parent, LPSTR text);
 HWND CreateImage(HWND parent, DWORD size);
 HWND CreateButton(HWND parent, TCHAR* key, INT x, INT y, Dictionary<DWORD, EVENT_HANDLER>* events, EVENT_HANDLER evHandler = NULL, BOOL isDefault = FALSE);

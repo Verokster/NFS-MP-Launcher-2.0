@@ -77,6 +77,7 @@ HICON hIcon;
 HANDLE hProcessInfo, hOptions, hIconHelp, hImageD3D, hImageVoodoo, hImageOpenGL, hImageSoftware, hImageNone;
 
 HWND hWndMain, hWndChild;
+HWND hPanelMain, hPanelChild;
 HWND btnOptions, btnLaunch, btnSave, btnReadme, lblButtonsRule, imgDriver, gpFirst;
 
 Config* config;
@@ -102,6 +103,10 @@ LRESULT CALLBACK WndMainProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 
 	case WM_COMMAND:
 		LoopCommand(wParam, lParam, mainEvents);
+		break;
+
+	case WM_SIZE:
+		SetWindowPos(hPanelMain, NULL, 0, 0, LOWORD(lParam), HIWORD(lParam), SWP_NOMOVE | SWP_NOZORDER);
 		break;
 
 	default:
@@ -132,6 +137,10 @@ LRESULT CALLBACK WndDriverProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 			SendMessage(hWnd, WM_CLOSE, NULL, NULL);
 		else
 			LoopCommand(wParam, lParam, childEvents);
+		break;
+
+	case WM_SIZE:
+		SetWindowPos(hPanelChild, NULL, 0, 0, LOWORD(lParam), HIWORD(lParam), SWP_NOMOVE | SWP_NOZORDER);
 		break;
 
 	default:
@@ -343,7 +352,7 @@ DWORD WINAPI GameProc(LPVOID lpParameter)
 #pragma endregion
 
 #pragma region Creare Elements
-HWND CreateForm(HWND parent, LPCTSTR className, LPCTSTR windowName, DWORD width, DWORD height, DWORD dwStyle)
+HWND CreateForm(HWND parent, LPCTSTR className, LPCTSTR windowName, DWORD width, DWORD height, DWORD dwStyle, HWND* hPanel)
 {
 	RECT rect;
 	rect.left = 0;
@@ -365,6 +374,8 @@ HWND CreateForm(HWND parent, LPCTSTR className, LPCTSTR windowName, DWORD width,
 		NULL);
 
 	SetFont(hWnd);
+
+	*hPanel = CreatePanel(hWnd, 0, 0, width, height);
 
 	return hWnd;
 }
@@ -1774,7 +1785,7 @@ ATOM RegisterWindowClass(TCHAR* className, WNDPROC proc)
 	wc.hInstance = hInst;
 	wc.hIcon = hIcon;
 	wc.hCursor = hCursor;
-	wc.hbrBackground = (HBRUSH)(COLOR_WINDOW);
+	wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
 	wc.lpszClassName = className;
 	wc.hIconSm = hIcon;
 
@@ -1815,7 +1826,7 @@ INT InitMainWindow(INT nCmdShow)
 			} while (--count && (prop = prop->Next()));
 		}
 
-		hWndMain = CreateForm(NULL, CLASS_MAIN, fi->name, FORM_MAIN_WIDTH, 100, FORM_MAIN_STYLE);
+		hWndMain = CreateForm(NULL, CLASS_MAIN, fi->name, FORM_MAIN_WIDTH, 100, FORM_MAIN_STYLE, &hPanelMain);
 	}
 	delete fi;
 
@@ -1945,7 +1956,7 @@ VOID InitDriverWindow(Driver* driver, DWORD deviceNumber)
 	}
 
 	currentDriver = driver;
-	hWndChild = CreateForm(hWndMain, CLASS_DRIVER, name ? name : driver->name, FORM_DRIVER_WIDTH, FORM_DRIVER_HEIGHT, FORM_DRIVER_STYLE);
+	hWndChild = CreateForm(hWndMain, CLASS_DRIVER, name ? name : driver->name, FORM_DRIVER_WIDTH, FORM_DRIVER_HEIGHT, FORM_DRIVER_STYLE, &hPanelChild);
 
 	if (name)
 		delete[] name;

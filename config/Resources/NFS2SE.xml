@@ -22,7 +22,7 @@
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 	SOFTWARE.
 -->
-<root version="2.0.5.0">
+<root version="2.0.6.0">
   <main exe="nfs2se.exe" ini="nfs2se.ini">
     <!-- Language -->
     <property section="NFS2SE" key="Language" type="choice">
@@ -119,7 +119,18 @@
         <value lang="ukr">Графіка</value>
       </title>
       <!-- WindowedMode -->
-      <property inherit="windowed" />
+      <property section="NFS2SE" key="WindowedMode" type="check">
+        <title>
+          <value lang="enu">Windowed mode</value>
+          <value lang="rus">Оконный режим</value>
+          <value lang="ukr">Віконний режим</value>
+        </title>
+        <description>
+          <value lang="enu">Allows to run the game in windowed mode</value>
+          <value lang="rus">Позволяет запускать игру в оконном режиме</value>
+          <value lang="ukr">Дозволяє запускати гру у віконному режимі</value>
+        </description>
+      </property>
       <property section="NFS2SE" key="Resolution" type="choice">
         <title>
           <value lang="enu">Screen resolution</value>
@@ -462,7 +473,6 @@
         <property inherit="type" />
       </group>
       <group>
-        <property inherit="windowed" section="ENV" key="OGL_WINDOWED" />
         <property inherit="exclusive" />
         <property inherit="resolution" key="OGL_RESOLUTION" />
         <property inherit="aspect" key="OGL_ASPECT" />
@@ -482,7 +492,6 @@
         <property inherit="type" />
       </group>
       <group>
-        <property inherit="windowed" section="ENV" key="OGL_WINDOWED" />
         <property inherit="exclusive" />
         <property inherit="resolution" key="OGL_RESOLUTION" />
         <property inherit="aspect" key="OGL_ASPECT" />
@@ -568,18 +577,6 @@
         <value lang="enu">Prevents turning off of the DWM when the game is started in the windowed mode, but in this case the screenshoter will not work.</value>
         <value lang="rus">Предотвращает остановку DWM когда игра запущена в оконном режиме, но в этом случае встроенный скриншотер не будет работать.</value>
         <value lang="ukr">Запобігає зупинці DWM коли гру запущено в віконному режимі, але в цьому випадку вбудований скріншотер не працюватиме.</value>
-      </description>
-    </property>
-    <property name="windowed" section="NFS2SE" key="WindowedMode" type="check">
-      <title>
-        <value lang="enu">Windowed mode</value>
-        <value lang="rus">Оконный режим</value>
-        <value lang="ukr">Віконний режим</value>
-      </title>
-      <description>
-        <value lang="enu">Allows to run the game in windowed mode</value>
-        <value lang="rus">Позволяет запускать игру в оконном режиме</value>
-        <value lang="ukr">Дозволяє запускати гру у віконному режимі</value>
       </description>
     </property>
     <property name="exclusive" section="ENV" key="OGL_EXCLUSIVE" type="check">

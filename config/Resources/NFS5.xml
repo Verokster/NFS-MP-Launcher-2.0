@@ -22,7 +22,7 @@
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 	SOFTWARE.
 -->
-<root version="2.0.5.0">
+<root version="2.0.6.0">
   <main exe="nfs5.exe" ini="nfs5.ini">
     <!-- Language -->
     <property section="NFS5" key="Language" type="choice">
@@ -99,6 +99,9 @@
       <option key="nglide">
         <value>nGlide</value>
       </option>
+      <!--option key="mesa3d">
+        <value>Mesa 3D</value>
+      </option-->
       <option key="opengl1">
         <value>OpenGL 1</value>
       </option>
@@ -118,20 +121,42 @@
         <value lang="ukr">Графіка</value>
       </title>
       <!-- WindowedMode -->
-      <property inherit="windowed" />
-      <!-- Prefer32bitModes -->
-      <!--<property section="NFS5" key="Prefer32bitModes" type="check">
+      <property section="NFS5" key="WindowedMode" type="check">
         <title>
-          <value lang="enu">32bit mode</value>
-          <value lang="rus">32-битный режим</value>
-          <value lang="ukr">32-бітний режим</value>
+          <value lang="enu">Windowed mode</value>
+          <value lang="rus">Оконный режим</value>
+          <value lang="ukr">Віконний режим</value>
         </title>
         <description>
-          <value lang="enu">Hides 16 bit resolutions if similar 32 bit resolutions are available, also enables 32-bit rendering of the menu.</value>
-          <value lang="rus">Cкрывает 16-битные разрешения, если есть доступны аналогичные 32-битные разрешения, также включает 32-разрядную отрисовку меню.</value>
-          <value lang="ukr">Ховає 16-бітні розширення, якщо є доступні аналогічні 32-бітні розширення, також включає 32-розрядне відмальовування меню.</value>
+          <value lang="enu">Allows to run the game in windowed mode</value>
+          <value lang="rus">Позволяет запускать игру в оконном режиме</value>
+          <value lang="ukr">Дозволяє запускати гру у віконному режимі</value>
         </description>
-      </property>-->
+      </property>
+      <property section="NFS5" key="Fog" type="check">
+        <title>
+          <value lang="enu">Fog</value>
+          <value lang="rus">Туман</value>
+          <value lang="ukr">Туман</value>
+        </title>
+        <description>
+          <value lang="enu">Enables fog effect on the tracks.</value>
+          <value lang="rus">Включает эффект тумана на трассах.</value>
+          <value lang="ukr">Вмикає ефект туману на треках.</value>
+        </description>
+      </property>
+      <property section="NFS5" key="Filtering" type="check">
+        <title>
+          <value lang="enu">Filtering</value>
+          <value lang="rus">Фильтрация</value>
+          <value lang="ukr">Фільтрація</value>
+        </title>
+        <description>
+          <value lang="enu">Enables linear filtering for textures.</value>
+          <value lang="rus">Включает линейную фильтрацию текстур.</value>
+          <value lang="ukr">Вмикає лінійну фільтрацію текстур.</value>
+        </description>
+      </property>
     </group>
     <group>
       <title>
@@ -292,6 +317,25 @@
         </property>
       </group>
     </driver>
+    <!--driver key="mesa3d" ini="thrash.ini" multi="1">
+      <title>
+        <value>Mesa 3D</value>
+      </title>
+      <group>
+        <property inherit="file" />
+        <property inherit="type" />
+      </group>
+      <group>
+        <property inherit="exclusive" />
+        <property inherit="resolution" key="OGL_RESOLUTION" />
+        <property inherit="aspect" key="OGL_ASPECT" />
+        <property inherit="colorbpp" />
+        <property inherit="refresh" key="OGL_REFRESH" />
+        <property inherit="vsync" key="OGL_VSYNC" />
+        <property inherit="gamma" key="OGL_GAMMA" />
+        <property inherit="zbpp" />
+      </group>
+    </driver-->
     <driver key="opengl1" ini="thrash.ini" multi="1">
       <title>
         <value>OpenGL 1</value>
@@ -301,7 +345,6 @@
         <property inherit="type" />
       </group>
       <group>
-        <property inherit="windowed" section="ENV" key="OGL_WINDOWED" />
         <property inherit="exclusive" />
         <property inherit="resolution" key="OGL_RESOLUTION" />
         <property inherit="aspect" key="OGL_ASPECT" />
@@ -309,7 +352,6 @@
         <property inherit="refresh" key="OGL_REFRESH" />
         <property inherit="vsync" key="OGL_VSYNC" />
         <property inherit="gamma" key="OGL_GAMMA" />
-        <property inherit="filter" />
         <property inherit="zbpp" />
       </group>
     </driver>
@@ -322,7 +364,6 @@
         <property inherit="type" />
       </group>
       <group>
-        <property inherit="windowed" section="ENV" key="OGL_WINDOWED" />
         <property inherit="exclusive" />
         <property inherit="resolution" key="OGL_RESOLUTION" />
         <property inherit="aspect" key="OGL_ASPECT" />
@@ -330,7 +371,6 @@
         <property inherit="refresh" key="OGL_REFRESH" />
         <property inherit="vsync" key="OGL_VSYNC" />
         <property inherit="gamma" key="OGL_GAMMA" />
-        <property inherit="filter" />
         <property inherit="zbpp" />
       </group>
     </driver>
@@ -349,7 +389,8 @@
         <property inherit="plock" />
       </group>
     </driver>-->
-  </thrash>
+  
+</thrash>
   <base>
     <property name="file" section="THRASH" key="File" type="choice">
       <title>
@@ -409,18 +450,6 @@
         <value lang="enu">Prevents turning off of the DWM when the game is started in the windowed mode, but in this case the screenshoter will not work.</value>
         <value lang="rus">Предотвращает остановку DWM когда игра запущена в оконном режиме, но в этом случае встроенный скриншотер не будет работать.</value>
         <value lang="ukr">Запобігає зупинці DWM коли гру запущено в віконному режимі, але в цьому випадку вбудований скріншотер не працюватиме.</value>
-      </description>
-    </property>
-    <property name="windowed" section="NFS5" key="WindowedMode" type="check">
-      <title>
-        <value lang="enu">Windowed mode</value>
-        <value lang="rus">Оконный режим</value>
-        <value lang="ukr">Віконний режим</value>
-      </title>
-      <description>
-        <value lang="enu">Allows to run the game in windowed mode</value>
-        <value lang="rus">Позволяет запускать игру в оконном режиме</value>
-        <value lang="ukr">Дозволяє запускати гру у віконному режимі</value>
       </description>
     </property>
     <property name="exclusive" section="ENV" key="OGL_EXCLUSIVE" type="check">
